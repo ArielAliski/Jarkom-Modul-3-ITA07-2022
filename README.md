@@ -126,19 +126,11 @@ iface eth0 inet static
 
 Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155
 
-********************************************************Prefix Kelompok kami adalah `10.43` sehingga soal disesuaikan dengan prefix kami**
+**Prefix Kelompok kami adalah `10.43` sehingga soal disesuaikan dengan prefix kami**
 
 Untuk menjawab ini, kita harus melakukan konfigurasi pada DHCP relay yang berada di Ostania
 
 ```bash
-**# Defaults for isc-dhcp-relay initscript
-# sourced by /etc/init.d/isc-dhcp-relay
-# installed at /etc/default/isc-dhcp-relay by the maintainer scripts
-
-#
-# This is a POSIX shell fragment
-#
-
 # What servers should the DHCP relay forward requests to?
 SERVERS="10.43.2.4"
 
@@ -146,7 +138,7 @@ SERVERS="10.43.2.4"
 INTERFACES="eth1 eth3 eth2"
 
 # Additional options that are passed to the DHCP relay daemon?
-OPTIONS=""**
+OPTIONS=""
 ```
 
 Karena DHCP servernya ada di ******************Westalis****************** maka di westalis dikonfigurasi sebagai berikut
