@@ -64,7 +64,7 @@ apt-get install isc-dhcp-relay -y
 
 Topologi yang digunakan adalah sebagai berikut
 
-![Untitled](Jarkom-Modul-3-ITA07-2022%205929e2fe1ff84ddda1ca70b52cff30f7/Untitled.png)
+![topologi](topologi.png)
 
 Dan untuk konfigurasi masing masing nodenya adalah sebagai berikut
 
