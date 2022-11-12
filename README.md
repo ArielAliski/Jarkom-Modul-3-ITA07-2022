@@ -120,6 +120,8 @@ iface eth0 inet static
 	gateway 10.43.2.1
 ```
 
+![Soal2](soal2.png)
+
 ## Soal Nomor 3
 
 Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155
