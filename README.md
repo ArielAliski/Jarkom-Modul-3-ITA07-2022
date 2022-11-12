@@ -120,15 +120,7 @@ iface eth0 inet static
 	gateway 10.43.2.1
 ```
 
-![Soal2](soal2.png)
-
-## Soal Nomor 3
-
-Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155
-
-**Prefix Kelompok kami adalah `10.43` sehingga soal disesuaikan dengan prefix kami**
-
-Untuk menjawab ini, kita harus melakukan konfigurasi pada DHCP relay yang berada di Ostania
+Pada file /etc/default/isc-dhcp-relay di Ostania dikonfigurasi seperti berikut
 
 ```bash
 # What servers should the DHCP relay forward requests to?
@@ -141,65 +133,63 @@ INTERFACES="eth1 eth3 eth2"
 OPTIONS=""
 ```
 
-Karena DHCP servernya ada di ******************Westalis****************** maka di westalis dikonfigurasi sebagai berikut
-
+Setelah itu start dhcp
 ```bash
-# Defaults for isc-dhcp-server initscript
-# sourced by /etc/init.d/isc-dhcp-server
-# installed at /etc/default/isc-dhcp-server by the maintainer scripts
-
-#
-# This is a POSIX shell fragment
-#
-
-# Path to dhcpd's config file (default: /etc/dhcp/dhcpd.conf).
-#DHCPD_CONF=/etc/dhcp/dhcpd.conf
-
-# Path to dhcpd's PID file (default: /var/run/dhcpd.pid).
-#DHCPD_PID=/var/run/dhcpd.pid
-
-# Additional options to start dhcpd with.
-#       Don't use options -cf or -pf here; use DHCPD_CONF/ DHCPD_PID instead
-#OPTIONS=""
-
-# On what interfaces should the DHCP server (dhcpd) serve DHCP requests?
-#       Separate multiple interfaces with spaces, e.g. "eth0 eth1".
-INTERFACES="eth0"
+service isc-dhcp-relay start
 ```
 
-Lalu restart DHCP servernya `service isc-dhcp-server restart` dan konfigurasikan rentang ip pada folder /etc/dhcp/dhcpd.conf
+![Soal2](soal2.png)
+
+## Soal Nomor 3
+
+Loid dan Franky menyusun peta tersebut dengan hati-hati dan teliti. Ada beberapa kriteria yang ingin dibuat oleh Loid dan Franky, yaitu:
+1. Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server.
+2. 2. Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155
+
+**Prefix Kelompok kami adalah `10.43` sehingga soal disesuaikan dengan prefix kami**
+
+Konfigurasikan rentang ip pada folder /etc/dhcp/dhcpd.conf lalu restart DHCP servernya `service isc-dhcp-server restart`
 
 ```bash
-subnet 10.43.2.0 netmask 255.255.255.0 {
-}
 subnet 10.43.1.0 netmask 255.255.255.0 {
-    range  10.43.1.20 10.43.1.99;
-    range  10.43.1.150 10.43.1.169;
-    option routers 10.43.1.1;
-    option broadcast-address 10.43.1.255;
-    option domain-name-servers 10.43.2.2;
-    default-lease-time 360;
-    max-lease-time 7200;
+        range 10.43.1.50 10.43.1.88;
+        range 10.43.1.120 10.43.1.155;
+        option routers 10.43.1.1;
+        option broadcast-address 10.43.1.255;
+        option domain-name-servers 10.43.2.2;
 }
+
+subnet 10.40.2.0 netmask 255.255.255.0 {}
 ```
 
 ## Soal Nomor 4
 
 Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.10 - [prefix IP].3.30 dan [prefix IP].3.60 - [prefix IP].3.85
 
-********************************************************Prefix Kelompok kami adalah `10.43` sehingga soal disesuaikan dengan prefix kami**
+**Prefix Kelompok kami adalah `10.43` sehingga soal disesuaikan dengan prefix kami**
 
 Konfigurasikan kembali rentang ipnya pada /etc/dhcp/dhcpd.conf
 
 ```bash
+subnet 10.43.1.0 netmask 255.255.255.0 {
+        range 10.43.1.50 10.43.1.88;
+        range 10.43.1.120 10.43.1.155;
+        option routers 10.43.1.1;
+        option broadcast-address 10.43.1.255;
+        option domain-name-servers 10.43.2.2;
+        default-lease-time 300;
+        max-lease-time 6900;
+}
+subnet 10.43.2.0 netmask 255.255.255.0{
+}
 subnet 10.43.3.0 netmask 255.255.255.0 {
-    range  10.43.3.10 10.43.3.60;
-		range 10.43.3.60 10.43.3.85;
-    option routers 10.43.3.1;
-    option broadcast-address 10.43.3.255;
-    option domain-name-servers 10.43.2.2;
-    default-lease-time 720;
-    max-lease-time 7200;
+        range 10.43.3.10 10.43.3.30;
+        range 10.43.3.60 10.43.3.85;
+        option routers 10.43.3.1;
+        option broadcast-address 10.43.3.255;
+        option domain-name-servers 10.43.2.2;
+        default-lease-time 600;
+        max-lease-time 6900;
 }
 ```
 
@@ -209,7 +199,7 @@ Client mendapatkan DNS dari WISE dan client dapat terhubung dengan internet mela
 
 Kembali mengatur pada konfigurasi /etc/dhcp/dhcpd.conf
 
-`option domain-name-servers 10.45.2.2;`
+`option domain-name-servers 10.43.2.2;`
 
 Agar semuanya dapat terhubung dengan WISE kita atur forwardingnya
 
@@ -220,8 +210,7 @@ options {
         directory \"/var/cache/bind\";
 
         forwarders {
-                8.8.8.8;
-                8.8.8.4;
+                192.168.122.1;
         };
 
         // dnssec-validation auto;
@@ -271,14 +260,6 @@ host Eden {
     hardware ethernet be:c0:ff:37:bb:09;
     fixed-address 10.43.3.13;
 }
-```
-
-Dan konfigurasikan /etc/network/interfaces dengan seperti berikut
-
-```bash
-auto eth0
-iface eth0 inet dhcp
-hwaddress ether be:c0:ff:37:bb:09
 ```
 
 # Proxy Server
