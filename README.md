@@ -2,11 +2,13 @@
 
 ## Laporan Hasil Praktikum Modul 3 Kelompok ITA07
 
-Anggota kelompok: 
+# Anggota
 
-| Ariel Daffansyah Aliski | 5027201058 |
-| Anak Agung Bintang Krisna Dewi | 5027201060 |
-| Naftali Salsabila Kanaya Putri | 5027201012 |
+| Nama                           | NRP          | 
+| -------------------------------| -------------| 
+| Naftali Salsabila Kanaya Putri    | `5027201012` | 
+| Ariel Daffansyah Aliski           | `5027201058` | 
+| Anak Agung Bintang Krisnadewi     | `5027201060` |
 
 # Daftar isi
 
