@@ -2,8 +2,6 @@
 
 ## Laporan Hasil Praktikum Modul 3 Kelompok ITA07
 
-Jarkom-Modul-3-ITA07-2022
-
 Anggota kelompok: 
 
 | Ariel Daffansyah Aliski | 5027201058 |
