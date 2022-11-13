@@ -5,7 +5,6 @@
 Anggota kelompok: 
 
 | Ariel Daffansyah Aliski | 5027201058 |
-| --- | --- |
 | Anak Agung Bintang Krisna Dewi | 5027201060 |
 | Naftali Salsabila Kanaya Putri | 5027201012 |
 
@@ -234,6 +233,15 @@ options {
         listen-on-v6 { any; };
 };
 ```
+
+**Testing**
+</br>
+Cek koneksi internet
+![Soal5](soal5_sss.png)
+
+![Soal5](soal5_nc.png)
+
+![Soal5](soal5_eden.png)
 
 ## Soal Nomor 6
 
