@@ -141,7 +141,7 @@ service isc-dhcp-relay start
 
 </br>
 DHCP nyala
-![soal2](soal2_1.png)
+![soal2_1](soal2_1.png)
 
 ## Soal Nomor 3
 
