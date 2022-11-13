@@ -203,6 +203,11 @@ subnet 10.43.3.0 netmask 255.255.255.0 {
 }
 ```
 
+**Testing**
+</br>
+Mengetes salah satu IP dari client yang melalui Switch3
+![Soal4](soal4.png)
+
 ## Soal Nomor 5
 
 Client mendapatkan DNS dari WISE dan client dapat terhubung dengan internet melalui DNS tersebut
