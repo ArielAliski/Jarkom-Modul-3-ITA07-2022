@@ -140,7 +140,9 @@ service isc-dhcp-relay start
 ![soal2](soal2.png)
 
 </br>
+
 DHCP nyala
+
 ![soal2_1](soal2_1.png)
 
 ## Soal Nomor 3
