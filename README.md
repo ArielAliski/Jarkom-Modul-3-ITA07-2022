@@ -142,7 +142,7 @@ service isc-dhcp-relay start
 
 Loid dan Franky menyusun peta tersebut dengan hati-hati dan teliti. Ada beberapa kriteria yang ingin dibuat oleh Loid dan Franky, yaitu:
 1. Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server.
-2. 2. Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155
+2. Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155
 
 **Prefix Kelompok kami adalah `10.43` sehingga soal disesuaikan dengan prefix kami**
 
@@ -159,6 +159,10 @@ subnet 10.43.1.0 netmask 255.255.255.0 {
 
 subnet 10.40.2.0 netmask 255.255.255.0 {}
 ```
+
+**Testing**
+Mengetes salah satu IP dari client yang melalui Switch1
+![Soal3](soal3.png)
 
 ## Soal Nomor 4
 
