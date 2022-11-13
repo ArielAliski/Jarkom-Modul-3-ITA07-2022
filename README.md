@@ -135,7 +135,8 @@ Setelah itu start dhcp
 ```bash
 service isc-dhcp-relay start
 ```
-
+</br>
+![Soal2](soal2.png)
 ![Soal2](soal2.png)
 
 ## Soal Nomor 3
@@ -161,6 +162,7 @@ subnet 10.40.2.0 netmask 255.255.255.0 {}
 ```
 
 **Testing**
+</br>
 Mengetes salah satu IP dari client yang melalui Switch1
 ![Soal3](soal3.png)
 
