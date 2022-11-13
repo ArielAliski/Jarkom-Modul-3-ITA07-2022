@@ -2,7 +2,7 @@
 
 ## Laporan Hasil Praktikum Modul 3 Kelompok ITA07
 
-# Anggota
+## Anggota
 
 | Nama                           | NRP          | 
 | -------------------------------| -------------| 
@@ -10,7 +10,6 @@
 | Ariel Daffansyah Aliski           | `5027201058` | 
 | Anak Agung Bintang Krisnadewi     | `5027201060` |
 
-# Daftar isi
 
 ## Soal Nomor 1
 
