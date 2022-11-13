@@ -287,7 +287,7 @@ host Eden {
 
 **Testing**
 </br>
-Maka Eden akan mendapatkan IP `10.40.3.13`
+Maka Eden akan mendapatkan IP `10.43.3.13`
 ![Soal7](soal7.png)
 
 # Proxy Server
